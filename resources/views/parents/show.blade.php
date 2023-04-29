@@ -1,22 +1,35 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>{{ $superpower->name }}</title>
-</head>
-<body>
-   <h1>{{ $parent->name }}<h1>
-    <p>{{ $parent->description }}</p> 
+@extends('layouts.master')
+@section('botones')
 
-    <a href="{{ route('parents.edit',$parent->id) }}">Editar</p>
-    <!---<a href="{{ route('superpowers.destroy',$superpower->id) }}">Delete</p>--->
+<div class="row justify-content-center mb-4">
+    <div class="col-12 col-md-9 col-lg-6">
+      <a href="{{ route('superpowers.index'}}" class="btn btn-primary"> 
+    </div>
+</div>
 
-    <form action="{{ route('parents.edit','$parent->id) }}" method="post">
-        @method('delete')
-        @csrf
-        <button type="submit" onlick="return  confirm('Are you sure you want to deletethis record?')">Delete</button>
-    </form>
-</body>
-</html>
+@endsection
+@section('content')
+<div class="row justify-content-center mb-4">
+    <div class="col-12 col-md-9 col-lg-6">
+        <p>{{ $superpower->description }}</p>
+    </div>
+</div>
+<div class="row justify-content-center">
+    <div class="col-12 col-md-9 col-lg-6 text-end">
+        <ul class="list-in-line">
+            <li class="list-inline-item">
+                <a href="{{ route('parents.edit',$parent->id) }}">Editar</p>
+                <!---<a href="{{ route('superpowers.destroy',$superpower->id) }}">Delete</p>--->
+            </li>
+            <li class="list-inline-item">
+                <form action="{{ route('parents.destroy','$parent->id) }}">Delete</p>
+                @method('delete')
+                @csrf
+                <button type="submit" onlick="return  confirm('Are you sure you want to deletethis record?')">Delete</button>
+                </form>
+            </li>
+        </ul>
+    </div>
+</div>
+
+@endsection

@@ -1,14 +1,9 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Parents</title>
-</head>
-<body>
-    <h1 style="text-align: center">PARENTS</h1>
-
+@extends('layouts.master')
+@section('botones')
+<div class="row justify-content-center mb-4">
+    <div class="col">
+    </div>
+</div>
     <table style="with: 100%; text-align: center;">
         <thead>
             <tr>
